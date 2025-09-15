@@ -200,7 +200,7 @@ nav span {
   display: none;
 }
 
-.lyric-of-song p {
+.lyric-line {
   background-color: var(--bg-input);
   color: var(--text-primary);
   font-size: 1rem;
@@ -210,6 +210,7 @@ nav span {
   padding: 0.3rem 0.7rem;
   cursor: pointer;
 }
+
 
 
 
@@ -256,10 +257,17 @@ nav span {
   margin-bottom: 0.3em;
   cursor: pointer;
 }
+
 .lyric-jpg-container .customize-bar>div p {
   font-size: 0.8em;
   color: var(--text-primary);
   font-weight: 500;
   user-select: none;
 
+}
+
+.selected-lyrics {
+  background-color: var(--accent-purple);
+  color: var(--bg-app);
+  font-weight: 500;
 }

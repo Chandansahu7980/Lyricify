@@ -1,5 +1,6 @@
 const searchBtn = document.getElementById("search-song-btn");
 const inputField = document.getElementById("search-song");
+const notification = document.getElementById("notification");
 inputField.focus();
 
 async function getAccessToken() {
@@ -17,10 +18,11 @@ async function getSongLists() {
   // Prevent API call if field is empty
   if (!songName) {
     // alert("Search field cannot be empty!");
-    document.getElementById("notification").style.transform = "translateX(1%)";
+    notification.innerText = "Search field cannot be empty!";
+    notification.style.transform = "translateX(1%)";
+
     setInterval(() => {
-      document.getElementById("notification").style.transform =
-        "translateX(-100%)";
+      notification.style.transform = "translateX(-100%)";
     }, 2000);
     return;
   }
@@ -90,6 +92,33 @@ async function getLyric(songName, artist, albumName) {
       filteredLines.forEach((line) => {
         let p = document.createElement("p");
         p.textContent = line;
+        p.classList.add("lyric-line");
+
+        //Allow selecting lines
+        p.addEventListener("click", () => {
+          const selectedLines = document.querySelectorAll(
+            ".lyric-line.selected-lyrics"
+          );
+
+          if (p.classList.contains("selected-lyrics")) {
+            //If already selected remove it.
+            p.classList.remove("selected-lyrics");
+          } else {
+            //Allow only if less than 5 lines
+            if (selectedLines.length < 6) {
+              p.classList.add("selected-lyrics");
+            } else {
+              // notification.innerText = "Search field cannot be empty!";
+              notification.innerText = "Maximum lines seletced!";
+              notification.style.transform = "translateX(1%)";
+              setInterval(() => {
+                notification.style.transform = "translateX(-100%)";
+              }, 3000);
+              return;
+            }
+          }
+        });
+
         lyricsDiv.appendChild(p);
       });
     } else {
