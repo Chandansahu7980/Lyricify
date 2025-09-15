@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lyricify - Lyric Card Maker</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <p class="notification" id="notification">Search field cannot be empty!</p>
+
+    <nav class="navbar">
+      <img src="./logo.png" alt="" srcset="" />
+      <div>Lyric<span>ify</span></div>
+    </nav>
+    <div class="container">
+      <div class="card-container">
+        <div class="card">
+          <h2>Search</h2>
+          <div class="search-container">
+            <input
+              type="text"
+              name="search-song"
+              id="search-song"
+              placeholder="Seach your song"
+            />
+            <div class="search-song-btn" id="search-song-btn">
+              <img src="./search-icon.svg" alt="" />
+            </div>
+          </div>
+          <div class="song-result" id="song-result">
+            <!-- <div class="song-card">
+                        <img src="./logo.png" alt="">
+                        <div class="song-details">
+                            <p> </p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                    </div> -->
+          </div>
+        </div>
+        <div class="card lyrics-card" id="lyrics-card">
+          <h2>Lyrics Review</h2>
+          <div class="clicked-song" id="clicked-song"></div>
+          <div class="lyric-of-song" id="lyric-of-song"></div>
+        </div>
+        <div class="card">
+          <h2>Lyrics Card</h2>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

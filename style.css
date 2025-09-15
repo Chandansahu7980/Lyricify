@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  /* padding: 10; */
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  font-family: "Inter", "Poppins", "Montserrat", "Segoe UI", Arial, sans-serif;
+}
+
+:root {
+  --bg-app: #19191b;
+  /* Main background */
+  --bg-panel: #232328;
+  /* Card/Column background */
+  --bg-input: #232328;
+  /* Input/search box */
+  --bg-card: #28303a;
+  /* Card preview (right column) */
+  --bg-button: #604ef5;
+  /* "Continue" button */
+  --bg-select: #32323a;
+  /* List item/button hover/active */
+
+  --text-primary: #ffffff;
+  /* Main text */
+  --text-secondary: #a1a1aa;
+  /* Subtitle, muted text */
+  --text-heading: #c0c0c0c2;
+
+  --accent-purple: #a689fa;
+  /* Card color select: purple */
+  --accent-teal: #36baa9;
+  /* Card color select: teal */
+  --accent-pink: #fd7aab;
+  /* Card color select: pink */
+  --accent-orange: #ffc448;
+  /* Card color select: orange */
+  --accent-white: #ffffff;
+  /* Card color select: white */
+
+  --divider: #28282d;
+  /* Borders/lines */
+  --button-text: #ffffff;
+  /* Button text */
+  --input-placeholder: #a1a1aa;
+  /* Placeholder text */
+}
+
+body {
+  background-color: var(--bg-panel);
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.notification {
+  position: absolute;
+  z-index: 10;
+  top: 1.2rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: rgba(211, 63, 63, 0.797);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transform: translateX(-100%);
+  transition: all 0.3s ease-in-out;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  height: 10vh;
+}
+
+nav img {
+  height: 1.5em;
+  /* margin-right: 0.5em; */
+  mix-blend-mode: multiply;
+}
+
+nav span {
+  color: rgb(30, 144, 255);
+}
+
+.container {
+  /* height: 90vh; */
+  /* padding: 1em; */
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 2fr;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  height: 90vh;
+  padding: 1rem;
+}
+
+.card {
+  background-color: var(--bg-app);
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.121);
+  height: 100%;
+}
+
+.card h2 {
+  color: var(--text-heading);
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-input);
+  padding: 0.2em;
+  /* margin: 1rem; */
+  margin-top: 1rem;
+  border-radius: 1em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.121);
+  user-select: none;
+}
+
+.search-container img {
+  height: 2.5em;
+  width: 2.5em;
+  cursor: pointer;
+  margin: 0.2em;
+  margin-right: 0.5em;
+}
+
+.search-container img:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.search-container input {
+  width: calc(100%);
+  padding: 0 1em;
+  font-size: 1.2em;
+  font-weight: 500;
+  /* margin-right: 0.5em; */
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border-radius: 1rem;
+}
+
+.song-card {
+  display: flex;
+  align-items: center;
+  margin: 1em 0;
+  /* background-color: var(); */
+  padding: 0.5em;
+  border-radius: 0.5em;
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.121);
+  cursor: pointer;
+}
+
+.song-details h3 {
+  color: var(--text-primary);
+}
+
+.song-details p {
+  color: var(--text-secondary);
+}
+
+.song-details span {
+  color: var(--text-secondary);
+}
+
+.song-card img {
+  height: 3.7em;
+  width: 3.7em;
+  border-radius: 0.5em;
+  margin: 0.5em 1em;
+}
+
+/* .lyrics-card {
+  overflow-y: scroll;
+} */
+
+.lyric-of-song {
+  height: 28rem;
+  overflow-y: scroll;
+}
+
+.lyric-of-song::-webkit-scrollbar {
+  display: none;
+}
+
+.lyric-of-song p {
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0.3rem;
+  border-radius: 0.7rem;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+}
