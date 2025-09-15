@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lyricify - Lyric Card Maker</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
 
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lyricify - Lyric Card Maker</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
   <body>
     <p class="notification" id="notification"></p>
 
-    <nav class="navbar">
-      <img src="./logo.png" alt="" srcset="" />
-      <div>Lyric<span>ify</span></div>
-    </nav>
-    <div class="container">
-      <div class="card-container">
-        <div class="card">
-          <h2>Search</h2>
-          <div class="search-container">
-            <input
-              type="text"
-              name="search-song"
-              id="search-song"
-              placeholder="Seach your song"
-            />
-            <div class="search-song-btn" id="search-song-btn">
-              <img src="./search-icon.svg" alt="" />
-            </div>
+  <nav class="navbar">
+    <img src="./logo.png" alt="" srcset="" />
+    <div>Lyric<span>ify</span></div>
+  </nav>
+  <div class="container">
+    <div class="card-container">
+      <div class="card">
+        <h2>Search</h2>
+        <div class="search-container">
+          <input type="text" name="search-song" id="search-song" placeholder="Seach your song" />
+          <div class="search-song-btn" id="search-song-btn">
+            <img src="./search-icon.svg" alt="" />
           </div>
-          <div class="song-result" id="song-result">
-            <!-- <div class="song-card">
+        </div>
+        <div class="song-result" id="song-result">
+          <!-- <div class="song-card">
                         <img src="./logo.png" alt="">
                         <div class="song-details">
                             <p> </p>
@@ -38,19 +34,42 @@
                             <p></p>
                         </div>
                     </div> -->
+        </div>
+      </div>
+      <div class="card lyrics-card" id="lyrics-card">
+        <h2>Lyrics Review</h2>
+        <div class="clicked-song" id="clicked-song"></div>
+        <div class="lyric-of-song" id="lyric-of-song"></div>
+      </div>
+      <div class="card">
+        <h2>Lyrics Card</h2>
+        <div class="lyric-jpg-container">
+          <div class="card-jpg">
+            image will go here
           </div>
-        </div>
-        <div class="card lyrics-card" id="lyrics-card">
-          <h2>Lyrics Review</h2>
-          <div class="clicked-song" id="clicked-song"></div>
-          <div class="lyric-of-song" id="lyric-of-song"></div>
-        </div>
-        <div class="card">
-          <h2>Lyrics Card</h2>
+          <div class="customize-bar">
+            <div><input type="color" name="bg-color-picker" id="bg-color-picker">
+              <p>bg-color</p>
+            </div>
+            <div>
+              <input type="color" name="font-color-picker" id="font-color-picker">
+              <p>font-color</p>
+            </div>
+            <div>
+              <button><b>B</b></button>
+              <p>Bold</p>
+            </div>
+            <div>
+              <button>I</button>
+              <p>Italic</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="./script.js"></script>
-  </body>
+  <script src="./script.js"></script>
+</body>
+
 </html>
