@@ -200,7 +200,7 @@ nav span {
   display: none;
 }
 
-.lyric-of-song p {
+.lyric-line {
   background-color: var(--bg-input);
   color: var(--text-primary);
   font-size: 1rem;
@@ -209,4 +209,10 @@ nav span {
   border-radius: 0.7rem;
   padding: 0.3rem 0.7rem;
   cursor: pointer;
+}
+
+.selected-lyrics {
+  background-color: var(--accent-purple);
+  color: var(--bg-app);
+  font-weight: 500;
 }
