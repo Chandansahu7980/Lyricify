@@ -11,8 +11,6 @@ async function getAccessToken() {
 
 async function getSongLists() {
   const songResult = document.getElementById("song-result");
-  songResult.innerHTML = "<br><h2>🎧 Your song is fetching...</h2>";
-
   const songName = inputField.value.trim();
 
   // Prevent API call if field is empty
@@ -26,6 +24,8 @@ async function getSongLists() {
     }, 2000);
     return;
   }
+
+  songResult.innerHTML = "<br><h2>🎧 Your song is fetching...</h2>";
 
   const token = await getAccessToken();
   const res = await fetch(
@@ -63,7 +63,7 @@ async function getSongLists() {
     });
     inputField.value = "";
   } else {
-    console.log("No Song Found");
+    // console.log("No Song Found");
     songResult.innerHTML = `<p style="color: red; text-align:center;">No Song Found</p>`;
   }
 }
@@ -87,7 +87,7 @@ async function getLyric(songName, artist, albumName) {
       lyricsDiv.innerHTML = "";
       // console.log(lines);
       let filteredLines = lines.filter((tempLine) => tempLine !== "");
-      console.log(filteredLines);
+      // console.log(filteredLines);
       filteredLines.forEach((line) => {
         let p = document.createElement("p");
         p.textContent = line;
@@ -124,7 +124,7 @@ async function getLyric(songName, artist, albumName) {
       lyricsDiv.innerHTML = "<p style='color:red;'>Lyrics not available.</p>";
     }
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     lyricsDiv.innerHTML = "<p style='color:red;'>Lyrics not available.</p>";
   }
 }
@@ -150,13 +150,13 @@ clickedDiv.addEventListener("click", (e) => {
     const artist = clickedSong.querySelector(".artist-name").textContent;
     const duration = clickedSong.querySelector(".song-duration").textContent;
     const albumName = clickedSong.querySelector(".album-name").textContent;
-    console.log(songName, artist, duration, albumName);
+    // console.log(songName, artist, duration, albumName);
     // console.log(clickedSong);
     const resultDiv = document.getElementById("clicked-song");
     const mySelectedSong = document.createElement("div");
     mySelectedSong.className = "song-card";
     mySelectedSong.innerHTML = clickedSong.innerHTML;
-    console.log(mySelectedSong);
+    // console.log(mySelectedSong);
     resultDiv.innerHTML = "";
 
     resultDiv.appendChild(mySelectedSong);
@@ -164,3 +164,91 @@ clickedDiv.addEventListener("click", (e) => {
     getLyric(songName, artist, albumName);
   }
 });
+
+function makeCard(lyricsLines) {
+  let myCard = document.getElementById("card-jpg");
+  let myLyricsDiv = document.getElementById("final-lyric");
+  let cardBgColor = document.getElementById("bg-color-picker").value;
+  let cardfontColor = document.getElementById("font-color-picker").value;
+  myLyricsDiv.innerHTML = '';
+  // console.log(lyricsLines);
+  lyricsLines.forEach((key) => {
+    let line = document.createElement("p");
+    line.innerText = key.innerText;
+    // console.log(key);
+    myLyricsDiv.appendChild(line);
+  });
+  let myLyrics = document.querySelectorAll(".final-lyric p");
+  myCard.style.backgroundColor = cardBgColor;
+
+  myLyrics.forEach((key) => {
+    key.style.color = cardfontColor
+  });
+
+}
+
+document.getElementById("create-card").addEventListener("click", () => {
+  const selectedLines = document.querySelectorAll(".lyric-of-song .selected-lyrics");
+  if (selectedLines.length <= 0) {
+    // console.log("Please select a line to continue");
+    notification.innerText = "Please select a line to continue";
+    notification.style.transform = "translateX(1%)";
+    setInterval(() => {
+      notification.style.transform = "translateX(-100%)";
+    }, 2000);
+    return;
+  }
+
+  let selectedLinesLyric = [];
+
+  console.log(selectedLines);
+  selectedLines.forEach((key) => {
+    let line = document.createElement("p");
+    line.innerText = key.innerText;
+    selectedLinesLyric.push(line);
+    // console.log(key.innerText)
+  });
+
+  makeCard(selectedLinesLyric);
+
+});
+
+const cardBgColor = document.getElementById("bg-color-picker");
+const cardfontColor = document.getElementById("font-color-picker");
+
+cardBgColor.addEventListener("change", () => {
+  let myCard = document.getElementById("card-jpg");
+  let cardBgColor = document.getElementById("bg-color-picker").value;
+  myCard.style.backgroundColor = cardBgColor;
+});
+cardfontColor.addEventListener("change", () => {
+  let myLyrics = document.querySelectorAll(".final-lyric p");
+  let cardfontColor = document.getElementById("font-color-picker").value;
+  myLyrics.forEach((key) => {
+    key.style.color = cardfontColor
+  });
+});
+
+document.getElementById("bold-lyric").addEventListener("click", () => {
+  let myLyrics = document.querySelectorAll(".final-lyric p");
+  myLyrics.forEach((key) => {
+    key.classList.toggle("bold-text");
+  });
+});
+
+document.getElementById("italic-text").addEventListener("click", () => {
+  let myLyrics = document.querySelectorAll(".final-lyric p");
+  myLyrics.forEach((key) => {
+    key.classList.toggle("italic-text");
+  });
+});
+
+document.getElementById("lyric-font-style").addEventListener("change", () => {
+  let selectedFontFamily = document.getElementById("lyric-font-style").value;
+  // console.log(selectedFontFamily);
+  let myLyrics = document.querySelectorAll(".final-lyric p");
+  myLyrics.forEach((key) => {
+    key.style.fontFamily = selectedFontFamily;
+  });
+});
+

@@ -186,6 +186,23 @@ nav span {
   overflow-y: scroll;
 } */
 
+.lyrics-card {
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.lyrics-card .create-card {
+  float: right;
+  background-color: var(--bg-button);
+  border-radius: 50%;
+  /* padding: 0.3em; */
+  width: 1.7em;
+  height: 1.7em;
+  cursor: pointer;
+  position: relative;
+  bottom: calc(2em);
+}
+
 .lyric-of-song {
   height: 28rem;
   overflow-y: scroll;
@@ -276,6 +293,7 @@ nav span {
 }
 
 .customize-bar>div select {
+  /* text-align: center; */
   font-weight: bold;
   font-size: 0.8em;
   background: transparent;
@@ -283,22 +301,20 @@ nav span {
 }
 
 .customize-bar>div select option {
+  text-align: center;
   background-color: var(--bg-select);
   padding: 0.3em;
 }
 
 .card-jpg {
   background-color: var(--bg-card);
-  max-width: 70%;
+  width: 60%;
   aspect-ratio: 3/4;
   border-radius: 1em;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.121);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: left;
   padding: 1em;
   position: relative;
+  overflow: clip;
 }
 
 .song-name-artist {
@@ -306,13 +322,12 @@ nav span {
   align-items: center;
   gap: 1em;
   margin: 1em 0;
-
 }
 
 .song-name-artist img {
-  height: 3em;
-  width: 3em;
-  border-radius: 50%;
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 0.5em;
   margin-left: 0.5em;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.121);
 }
@@ -330,9 +345,21 @@ nav span {
 
 .final-lyric p {
   background: none;
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: var(--text-primary);
   font-weight: 500;
   margin: 0.2em 0;
-  line-height: 1.3em;
+  line-height: 1.2em;
+}
+
+p.bold-text {
+  font-weight: bold;
+}
+
+p.italic-text {
+  font-style: italic;
+}
+
+#test{
+  color:#000000;
 }
