@@ -91,11 +91,6 @@ nav span {
   color: rgb(30, 144, 255);
 }
 
-.container {
-  /* height: 90vh; */
-  /* padding: 1em; */
-}
-
 .card-container {
   display: grid;
   grid-template-columns: 1.5fr 2fr 2fr;
@@ -211,8 +206,11 @@ nav span {
   cursor: pointer;
 }
 
-
-
+.selected-lyrics {
+  background-color: var(--accent-purple);
+  color: var(--bg-app);
+  font-weight: 500;
+}
 
 .lyric-jpg-container {
   margin-top: 1em;
@@ -220,27 +218,20 @@ nav span {
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  height: 90%;
-  background-color: var(--bg-card);
-  border-radius: 0.5rem;
-  box-shadow: 0 0 5px rgba(181, 158, 158, 0.927);
+  height: 92%;
 }
 
-.lyric-jpg-container .customize-bar {
-  width: 90%;
-  margin: 1em auto;
-  padding: 0.5em;
+.customize-bar {
+  width: 94%;
+  margin: 1em;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-content: center;
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
   gap: 0.5rem;
-  margin-top: 0.5rem;
-  /* background-color: var(--bg-button); */
   border-radius: 0.5rem;
 }
 
-.lyric-jpg-container .customize-bar>div {
+.customize-bar>div {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -249,25 +240,99 @@ nav span {
   padding: 0.5em;
   border-radius: 0.5rem;
   height: 100%;
+  overflow: hidden;
+}
+
+.customize-bar>div input[type="color"] {
+  cursor: pointer;
+  height: 2.5em;
+  width: 2.5em;
 }
 
 .lyric-jpg-container .customize-bar>div button {
+  cursor: pointer;
   height: 2em;
   width: 2em;
-  margin-bottom: 0.3em;
+  margin: 0.25em;
+}
+
+.customize-bar>div input[type="color"] {
+  background: none;
+}
+
+.customize-bar>div p {
+  text-transform: capitalize;
+  font-size: 0.8em;
+  color: var(--text-primary);
+  font-weight: bold;
+  user-select: none;
+}
+
+.customize-bar>div label {
+  font-size: 1em;
+  background-color: transparent;
+  color: var(--text-primary);
   cursor: pointer;
 }
 
-.lyric-jpg-container .customize-bar>div p {
+.customize-bar>div select {
+  font-weight: bold;
   font-size: 0.8em;
+  background: transparent;
   color: var(--text-primary);
-  font-weight: 500;
-  user-select: none;
+}
+
+.customize-bar>div select option {
+  background-color: var(--bg-select);
+  padding: 0.3em;
+}
+
+.card-jpg {
+  background-color: var(--bg-card);
+  max-width: 70%;
+  aspect-ratio: 3/4;
+  border-radius: 1em;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.121);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  padding: 1em;
+  position: relative;
+}
+
+.song-name-artist {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin: 1em 0;
 
 }
 
-.selected-lyrics {
-  background-color: var(--accent-purple);
-  color: var(--bg-app);
+.song-name-artist img {
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  margin-left: 0.5em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.121);
+}
+
+.song-name-artist h4 {
+  color: var(--accent-white);
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.song-name-artist div p {
+  color: var(--text-secondary);
+  font-size: 0.9em;
+}
+
+.final-lyric p {
+  background: none;
+  font-size: 1.5em;
+  color: var(--text-primary);
   font-weight: 500;
+  margin: 0.2em 0;
+  line-height: 1.3em;
 }

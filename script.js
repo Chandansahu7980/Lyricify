@@ -71,9 +71,8 @@ async function getSongLists() {
 async function getLyric(songName, artist, albumName) {
   const apiUrl = `https://lrclib.net/api/get?track_name=${encodeURIComponent(
     songName
-  )}&artist_name=${encodeURIComponent(artist)}${
-    albumName ? `&album_name=${encodeURIComponent(albumName)}` : ""
-  }`;
+  )}&artist_name=${encodeURIComponent(artist)}${albumName ? `&album_name=${encodeURIComponent(albumName)}` : ""
+    }`;
 
   let lyricsDiv = document.getElementById("lyric-of-song");
   lyricsDiv.innerHTML = "<p>Fetching the Lyrics...</p>";
