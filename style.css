@@ -1,6 +1,5 @@
 * {
   margin: 0;
-  /* padding: 10; */
   padding: 0;
   box-sizing: border-box;
   border: none;
@@ -83,7 +82,6 @@ nav {
 
 nav img {
   height: 1.5em;
-  /* margin-right: 0.5em; */
   mix-blend-mode: multiply;
 }
 
@@ -108,7 +106,11 @@ nav span {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.121);
   height: 100%;
   position: relative;
-  overflow: hidden;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .card h2 {
@@ -116,15 +118,17 @@ nav span {
 }
 
 .search-container {
+  position: sticky;
+  top: 0;
+  z-index: 5;
   display: flex;
   justify-content: center;
   align-items: center;
   background: var(--bg-input);
   padding: 0.2em;
-  /* margin: 1rem; */
   margin-top: 1rem;
   border-radius: 1em;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.121);
+  box-shadow: 0 0 7px rgba(255, 255, 255, 0.362);
   user-select: none;
 }
 
@@ -146,7 +150,6 @@ nav span {
   padding: 0 1em;
   font-size: 1.2em;
   font-weight: 500;
-  /* margin-right: 0.5em; */
   background: var(--bg-input);
   color: var(--text-primary);
   border-radius: 1rem;
@@ -185,19 +188,35 @@ nav span {
 
 .lyrics-card {
   position: relative;
-  /* overflow: hidden; */
 }
 
-.lyrics-card .create-card {
+
+.card .create-card,
+.card .download-card,
+.card .share-card {
   float: right;
   background-color: var(--bg-button);
   border-radius: 50%;
-  /* padding: 0.3em; */
   width: 1.7em;
   height: 1.7em;
   cursor: pointer;
   position: relative;
   bottom: calc(2em);
+  padding: 0.1em;
+}
+
+.card .share-card {
+  position: absolute;
+  right: 4em;
+  top: 1em;
+}
+
+.card .create-card:hover,
+.card .download-card:hover,
+.card .share-card:hover {
+  transform: scale(1.2);
+  padding: 0.2em;
+  transition: all 0.3s ease-in-out;
 }
 
 .lyric-of-song {
@@ -305,7 +324,6 @@ nav span {
 
 .card-jpg {
   background-color: var(--bg-card);
-  /* height: fit-content; */
   height: 80%;
   aspect-ratio: 3/4;
   border-radius: 1em;

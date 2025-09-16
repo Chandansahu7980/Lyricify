@@ -14,6 +14,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Basic&family=Bitcount+Grid+Double:wght@100..900&family=Gabriela&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Style+Script&display=swap"
     rel="stylesheet">
+
+  <!-- api for download card -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
 </head>
 
 <body>
@@ -52,6 +56,8 @@
       </div>
       <div class="card">
         <h2>Lyrics Card</h2>
+        <img src="./download-solid-full.svg" alt="Download Card" class="download-card" id="download-card">
+        <img src="./share-solid-full.svg" alt="Share Card" class="share-card" id="share-card">
         <div class="lyric-jpg-container" id="lyric-jpg-container">
           <div class="card-jpg" id="card-jpg">
             <div class="song-name-artist" id="song-name-artist"></div>
@@ -93,6 +99,7 @@
   </div>
 
   <script src="./script.js"></script>
+  <script src="./card-maker.js"></script>
 </body>
 
 </html>

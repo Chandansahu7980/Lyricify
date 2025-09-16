@@ -31,7 +31,7 @@ async function getSongLists() {
   const res = await fetch(
     `https://api.spotify.com/v1/search?q=${encodeURIComponent(
       songName
-    )}&type=track&limit=3`,
+    )}&type=track&limit=10`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -75,7 +75,7 @@ async function getLyric(songName, artist, albumName) {
     }`;
 
   let lyricsDiv = document.getElementById("lyric-of-song");
-  lyricsDiv.innerHTML = "<p>Fetching the Lyrics...</p>";
+  lyricsDiv.innerHTML = "<br><h2>🎼Fetching the lyrics...</h2>";
 
   try {
     const response = await fetch(apiUrl);
@@ -185,6 +185,56 @@ function makeCard(song, lyricsLines) {
   myLyrics.style.color = cardfontColor;
 
 }
+
+function downloadCard() {
+  console.log("function called.");
+  const card = document.getElementById("card-jpg");
+  html2canvas(card, {
+    useCORS: true,   // Enable cross-origin images
+    allowTaint: false,
+    logging: false,
+  }).then(canvas => {
+    const link = document.createElement("a");
+    link.download = "card.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  });
+}
+
+async function shareCard() {
+  const card = document.getElementById("card-jpg");
+
+  const canvas = await html2canvas(card, {
+    useCORS: true,
+    allowTaint: false,
+    logging: false,
+  });
+
+  const dataUrl = canvas.toDataURL("image/png");
+
+  const blob = await (await fetch(dataUrl)).blob();
+  const file = new File([blob], "card.png", { type: "image/png" });
+
+  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    try {
+      await navigator.share({
+        title: "My Card",
+        text: "Check out this card!",
+        files: [file],
+      });
+    } catch (err) {
+      console.error("Sharing failed:", err);
+    }
+  } else {
+    alert("Sharing not supported on this browser or device.");
+  }
+}
+
+const downloadBtn = document.getElementById("download-card");
+downloadBtn.addEventListener("click", downloadCard);
+
+const shareBtn = document.getElementById("share-card");
+shareBtn.addEventListener("click", shareCard);
 
 document.getElementById("create-card").addEventListener("click", () => {
 
