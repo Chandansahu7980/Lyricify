@@ -107,6 +107,8 @@ nav span {
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.121);
   height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .card h2 {
@@ -154,7 +156,6 @@ nav span {
   display: flex;
   align-items: center;
   margin: 1em 0;
-  /* background-color: var(); */
   padding: 0.5em;
   border-radius: 0.5em;
   background-color: var(--bg-input);
@@ -181,10 +182,6 @@ nav span {
   border-radius: 0.5em;
   margin: 0.5em 1em;
 }
-
-/* .lyrics-card {
-  overflow-y: scroll;
-} */
 
 .lyrics-card {
   position: relative;
@@ -308,20 +305,20 @@ nav span {
 
 .card-jpg {
   background-color: var(--bg-card);
-  width: 60%;
+  /* height: fit-content; */
+  height: 80%;
   aspect-ratio: 3/4;
   border-radius: 1em;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.121);
   padding: 1em;
   position: relative;
-  overflow: clip;
 }
 
 .song-name-artist {
   display: flex;
   align-items: center;
   gap: 1em;
-  margin: 1em 0;
+  margin: 0 0 1em;
 }
 
 .song-name-artist img {
@@ -332,34 +329,42 @@ nav span {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.121);
 }
 
-.song-name-artist h4 {
-  color: var(--accent-white);
-  font-size: 1.2em;
-  font-weight: 600;
+.song-name-artist .song-details h3 {
+  color: black;
+  font-size: 1em;
 }
 
-.song-name-artist div p {
-  color: var(--text-secondary);
-  font-size: 0.9em;
+.song-name-artist .song-details p {
+  color: rgb(40, 40, 40);
+  font-size: 0.8em;
 }
 
-.final-lyric p {
-  background: none;
-  font-size: 1.2em;
-  color: var(--text-primary);
+.final-lyric {
+  height: max-content;
+  color: black;
+  font-size: 1.5em;
+  line-height: 1.4em;
   font-weight: 500;
-  margin: 0.2em 0;
-  line-height: 1.2em;
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-p.bold-text {
+.bold-text {
   font-weight: bold;
 }
 
-p.italic-text {
+.italic-text {
   font-style: italic;
 }
 
-#test{
-  color:#000000;
+.signature-logo {
+  position: absolute;
+  bottom: 0.8em;
+  right: 1em;
+  text-align: right;
+  user-select: none;
+  color: var(--text-secondary);
 }

@@ -165,29 +165,29 @@ clickedDiv.addEventListener("click", (e) => {
   }
 });
 
-function makeCard(lyricsLines) {
+function makeCard(song, lyricsLines) {
+  let songCard = document.getElementById("song-name-artist");
   let myCard = document.getElementById("card-jpg");
   let myLyricsDiv = document.getElementById("final-lyric");
   let cardBgColor = document.getElementById("bg-color-picker").value;
   let cardfontColor = document.getElementById("font-color-picker").value;
+  songCard.innerHTML = song.innerHTML;
+  songCard.querySelector(".song-details p:nth-child(3)").style.display = "none";
+
   myLyricsDiv.innerHTML = '';
-  // console.log(lyricsLines);
   lyricsLines.forEach((key) => {
-    let line = document.createElement("p");
-    line.innerText = key.innerText;
-    // console.log(key);
-    myLyricsDiv.appendChild(line);
+    myLyricsDiv.innerHTML += key.innerHTML;
+    myLyricsDiv.innerHTML += "<br>";
   });
-  let myLyrics = document.querySelectorAll(".final-lyric p");
+  let myLyrics = document.getElementById("final-lyric");
   myCard.style.backgroundColor = cardBgColor;
 
-  myLyrics.forEach((key) => {
-    key.style.color = cardfontColor
-  });
+  myLyrics.style.color = cardfontColor;
 
 }
 
 document.getElementById("create-card").addEventListener("click", () => {
+
   const selectedLines = document.querySelectorAll(".lyric-of-song .selected-lyrics");
   if (selectedLines.length <= 0) {
     // console.log("Please select a line to continue");
@@ -199,9 +199,13 @@ document.getElementById("create-card").addEventListener("click", () => {
     return;
   }
 
+  const selectedSong = document.querySelector(".lyrics-card #clicked-song .song-card");
+  // console.log(selectedSong);
+
+
   let selectedLinesLyric = [];
 
-  console.log(selectedLines);
+  // console.log(selectedLines);
   selectedLines.forEach((key) => {
     let line = document.createElement("p");
     line.innerText = key.innerText;
@@ -209,7 +213,7 @@ document.getElementById("create-card").addEventListener("click", () => {
     // console.log(key.innerText)
   });
 
-  makeCard(selectedLinesLyric);
+  makeCard(selectedSong, selectedLinesLyric);
 
 });
 
@@ -222,33 +226,24 @@ cardBgColor.addEventListener("change", () => {
   myCard.style.backgroundColor = cardBgColor;
 });
 cardfontColor.addEventListener("change", () => {
-  let myLyrics = document.querySelectorAll(".final-lyric p");
+  let myLyrics = document.getElementById("final-lyric");
   let cardfontColor = document.getElementById("font-color-picker").value;
-  myLyrics.forEach((key) => {
-    key.style.color = cardfontColor
-  });
+  myLyrics.style.color = cardfontColor;
 });
 
 document.getElementById("bold-lyric").addEventListener("click", () => {
-  let myLyrics = document.querySelectorAll(".final-lyric p");
-  myLyrics.forEach((key) => {
-    key.classList.toggle("bold-text");
-  });
+  let myLyrics = document.getElementById("final-lyric");
+  myLyrics.classList.toggle("bold-text");
 });
 
 document.getElementById("italic-text").addEventListener("click", () => {
-  let myLyrics = document.querySelectorAll(".final-lyric p");
-  myLyrics.forEach((key) => {
-    key.classList.toggle("italic-text");
-  });
+  let myLyrics = document.getElementById("final-lyric");
+  myLyrics.classList.toggle("italic-text");
 });
 
 document.getElementById("lyric-font-style").addEventListener("change", () => {
   let selectedFontFamily = document.getElementById("lyric-font-style").value;
-  // console.log(selectedFontFamily);
-  let myLyrics = document.querySelectorAll(".final-lyric p");
-  myLyrics.forEach((key) => {
-    key.style.fontFamily = selectedFontFamily;
-  });
+  let myLyrics = document.getElementById("final-lyric");
+  myLyrics.style.fontFamily = selectedFontFamily;
 });
 
