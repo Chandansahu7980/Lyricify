@@ -29,60 +29,59 @@
   </nav>
   <div class="container">
     <div class="card-container">
-      <div class="card">
-        <h2>Search</h2>
+      <div class="card fetch-songs">
+        <h2>Search your song...</h2>
+        <hr>
         <div class="search-container">
-          <input type="text" name="search-song" id="search-song" placeholder="Seach your song" />
+          <input type="text" name="search-song" class="search-song" id="search-song" placeholder="Seach your song" />
           <div class="search-song-btn" id="search-song-btn">
             <img src="./search-icon.svg" alt="" />
           </div>
         </div>
-        <div class="song-result" id="song-result">
-          <!-- <div class="song-card">
-                        <img src="./logo.png" alt="">
-                        <div class="song-details">
-                            <p> </p>
-                            <p></p>
-                            <p></p>
-                        </div>
-                    </div> -->
+        <div class="song-result" id="song-result"></div>
+      </div>
+      <div class="card lyrics-card hide-div" id="lyrics-card">
+        <h2>Lyrics Review</h2>
+        <hr>
+        <div class="clicked-song-details">
+          <div class="clicked-song" id="clicked-song"></div>
+          <div class="create-card hide-div" id="create-card">
+            <h2>Continue</h2><img src="./circle-right-solid-full.svg" alt="">
+          </div>
+        </div>
+        <div class="lyric-of-song" id="lyric-of-song">
+          <h2>Click on a song to get the lyrics...</h2>
         </div>
       </div>
-      <div class="card lyrics-card" id="lyrics-card">
-        <h2>Lyrics Review</h2>
-        <img src="./circle-right-solid-full.svg" alt="" srcset="" class="create-card" id="create-card">
-        <div class="clicked-song" id="clicked-song"></div>
-        <div class="lyric-of-song" id="lyric-of-song"></div>
-      </div>
-      <div class="card">
-        <h2>Lyrics Card</h2>
-        <img src="./download-solid-full.svg" alt="Download Card" class="download-card" id="download-card">
-        <img src="./share-solid-full.svg" alt="Share Card" class="share-card" id="share-card">
+      <div class="card card-preview hide-div" id="preview-card">
+        <h2>Lyrics Card Design</h2>
+        <hr>
         <div class="lyric-jpg-container" id="lyric-jpg-container">
-          <div class="card-jpg" id="card-jpg">
-            <div class="song-name-artist" id="song-name-artist"></div>
-            <div class="final-lyric" id="final-lyric"></div>
-            <div class="signature-logo">@Lyricify</div>
+          <div class="card-jpg-container">
+            <div class="card-jpg" id="card-jpg">
+              <div class="song-name-artist" id="song-name-artist"></div>
+              <div class="final-lyric" id="final-lyric"></div>
+              <div class="signature-logo">@Lyricify</div>
+            </div>
           </div>
           <div class="customize-bar">
             <div>
               <input type="color" name="bg-color-picker" id="bg-color-picker" value="#6aa8ff">
-              <p>card-color</p>
+              <label for="bg-color-picker">Card Color</label>
             </div>
             <div>
               <input type="color" name="font-color-picker" id="font-color-picker" value="#000000">
-              <p>font-color</p>
+              <label for="font-color-picker">Font Color</label>
             </div>
             <div id="bold-lyric">
               <button><b>B</b></button>
-              <p>Bold</p>
+              <label for="bold-lyric">Bold</label>
             </div>
             <div id="italic-text">
               <button>I</button>
-              <p>Italic</p>
+              <label for="italic-text">Italic</label>
             </div>
             <div>
-              <label for="lyric-font-style">Aa</label>
               <select name="lyric-font-style" id="lyric-font-style">
                 <option value="Libre Baskerville">Libre</option>
                 <option value="Style Script">StyleScript</option>
@@ -91,6 +90,18 @@
                 <option value="sans-serif">SansSerif</option>
                 <option value="serif" selected>Serif</option>
               </select>
+              <label for="lyric-font-style">Aa</label>
+
+            </div>
+            <div>
+              <input type="range" name="font-size-picker" id="font-size-picker" min="1" max="100">
+              <label for="font-size-picker">Font Color</label>
+            </div>
+            <div class="download-card" id="download-card">
+              <p>Download</p><img src="./download-solid-full.svg" alt="Download Card">
+            </div>
+            <div class="share-card" id="share-card">
+              <p>Share Card</p><img src="./share-solid-full.svg" alt="Share Card">
             </div>
           </div>
         </div>
@@ -99,7 +110,6 @@
   </div>
 
   <script src="./script.js"></script>
-  <script src="./card-maker.js"></script>
 </body>
 
 </html>
