@@ -1,6 +1,29 @@
 const searchBtn = document.getElementById("search-song-btn");
 const inputField = document.getElementById("search-song");
+const clickedDiv = document.getElementById("song-result");
+const downloadBtn = document.getElementById("download-card");
+const shareBtn = document.getElementById("share-card");
+const cardBgColor = document.getElementById("bg-color-picker");
+const cardfontColor = document.getElementById("font-color-picker");
+const fontSizeValue = document.getElementById("font-size-picker");
+const themeToggleBtn = document.getElementById("theme-toggle-btn");
 inputField.focus();
+
+function setTheme(theme) {
+  let documentBody = document.body;
+  let moonIcon = document.getElementById("moon-icon");
+  let sunIcon = document.getElementById("sun-icon");
+  if (theme == 'dark') {
+    moonIcon.style.display = "none";
+    sunIcon.style.display = "block";
+    documentBody.setAttribute('data-theme', 'dark');
+  } else {
+    sunIcon.style.display = "none";
+    moonIcon.style.display = "block";
+    documentBody.removeAttribute('data-theme', 'dark');
+  }
+}
+
 function showNotification(message) {
   const notification = document.getElementById('notification');
   // const notificationMessage = document.getElementById('notification-message');
@@ -12,7 +35,6 @@ function showNotification(message) {
     notification.classList.add('hidden');
   }, 3000);
 }
-
 
 async function getAccessToken() {
   const response = await fetch("get-client-token.php"); // Adjust path if needed
@@ -126,7 +148,6 @@ inputField.addEventListener("keydown", (e) => {
 });
 
 // Handle clicking on a song card
-const clickedDiv = document.getElementById("song-result");
 clickedDiv.addEventListener("click", (e) => {
   const clickedSong = e.target.closest(".song-card");
 
@@ -215,10 +236,7 @@ async function shareCard() {
   }
 }
 
-const downloadBtn = document.getElementById("download-card");
 downloadBtn.addEventListener("click", downloadCard);
-
-const shareBtn = document.getElementById("share-card");
 shareBtn.addEventListener("click", shareCard);
 
 document.getElementById("create-card").addEventListener("click", () => {
@@ -246,10 +264,6 @@ document.getElementById("create-card").addEventListener("click", () => {
   makeCard(selectedSong, selectedLinesLyric);
 
 });
-
-const cardBgColor = document.getElementById("bg-color-picker");
-const cardfontColor = document.getElementById("font-color-picker");
-const fontSizeValue = document.getElementById("font-size-picker");
 
 cardBgColor.addEventListener("input", () => {
   let myCard = document.getElementById("card-jpg");
@@ -286,3 +300,17 @@ document.getElementById("lyric-font-style").addEventListener("change", () => {
   myLyrics.style.fontFamily = selectedFontFamily;
 });
 
+setTheme();
+themeToggleBtn.addEventListener("click", (e) => {
+  if (e.target.classList.contains('fa-moon')) {
+    setTheme("dark");
+    localStorage.setItem('theme', 'dark');
+  } else {
+    setTheme("light");
+    localStorage.removeItem('theme');
+  }
+});
+
+if (localStorage.getItem('theme')) {
+  setTheme(localStorage.getItem('theme'));
+}

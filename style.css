@@ -6,14 +6,15 @@
     --text-muted: #666;
     --btn-bg: #6aa8ff;
     --btn-bg-hover: #5596e3;
+}
 
-
-    /* --bg-body: #444546;
+[data-theme='dark'] {
+    --bg-body: #444546;
     --bg-card: #0e0e0e;
     --text-primary: #ffffff;
     --text-muted: #cfcfcf;
     --btn-bg: #6aa8ff;
-    --btn-bg-hover: #5596e3; */
+    --btn-bg-hover: #5596e3;
 }
 
 
