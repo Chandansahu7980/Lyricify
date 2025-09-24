@@ -8,6 +8,11 @@
   <title>Lyricify - Lyric Card Maker</title>
   <link rel="stylesheet" href="./style.css" />
 
+  <!-- icons cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- google font link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +29,14 @@
   <p class="notification" id="notification"></p>
 
   <nav class="navbar">
-    <img src="./logo.png" alt="" srcset="" />
-    <div>Lyric<span>ify</span></div>
+    <div>
+      <img src="./logo.png" alt="" srcset="" />
+      <p>Lyric<span>ify</span></p>
+    </div>
+    <div class="theme-toggle-btn" id="theme-toggle-btn">
+      <i class="fa-solid fa-sun fa-xl hide-div" id="sun-icon"></i>
+      <i class="fa-solid fa-moon fa-xl" id="moon-icon"></i>
+    </div>
   </nav>
   <div class="container">
     <div class="card-container">
@@ -35,7 +46,7 @@
         <div class="search-container">
           <input type="text" name="search-song" class="search-song" id="search-song" placeholder="Seach your song" />
           <div class="search-song-btn" id="search-song-btn">
-            <img src="./search-icon.svg" alt="" />
+            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
           </div>
         </div>
         <div class="song-result" id="song-result"></div>
@@ -45,9 +56,7 @@
         <hr>
         <div class="clicked-song-details">
           <div class="clicked-song" id="clicked-song"></div>
-          <div class="create-card hide-div" id="create-card">
-            <h2>Continue</h2><img src="./circle-right-solid-full.svg" alt="">
-          </div>
+          <div class="create-card hide-div" id="create-card">Continue</div>
         </div>
         <div class="lyric-of-song" id="lyric-of-song">
           <h2>Click on a song to get the lyrics...</h2>
@@ -98,10 +107,10 @@
               <label for="font-size-picker">Font Color</label>
             </div>
             <div class="download-card" id="download-card">
-              <p>Download</p><img src="./download-solid-full.svg" alt="Download Card">
+              <p>Download <i class="fa-solid fa-download"></i></p>
             </div>
             <div class="share-card" id="share-card">
-              <p>Share Card</p><img src="./share-solid-full.svg" alt="Share Card">
+              <p>ShareCard <i class="fa-etch fa-solid fa-share-nodes"></i></p>
             </div>
           </div>
         </div>

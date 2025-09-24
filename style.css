@@ -1,4 +1,22 @@
 /* Global Styles */
+:root {
+    --bg-body: #f0f4f8;
+    --bg-card: #fff;
+    --text-primary: #333;
+    --text-muted: #666;
+    --btn-bg: #6aa8ff;
+    --btn-bg-hover: #5596e3;
+
+
+    /* --bg-body: #444546;
+    --bg-card: #0e0e0e;
+    --text-primary: #ffffff;
+    --text-muted: #cfcfcf;
+    --btn-bg: #6aa8ff;
+    --btn-bg-hover: #5596e3; */
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +25,8 @@
 }
 
 body {
-    background-color: #f0f4f8;
-    color: #333;
+    background-color: var(--bg-body);
+    color: var(--text-primary);
 }
 
 h2 {
@@ -26,10 +44,10 @@ hr {
 /* Navbar */
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #fff;
+    background-color: var(--bg-card);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
@@ -38,12 +56,18 @@ hr {
     z-index: 1000;
 }
 
+.navbar>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .navbar img {
     height: 2.5rem;
     margin-right: 0.5rem;
 }
 
-.navbar div {
+.navbar p {
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -51,6 +75,7 @@ hr {
 .navbar span {
     color: #6aa8ff;
 }
+
 
 /* Main Container */
 .container {
@@ -69,7 +94,7 @@ hr {
 
 /* Card Styling */
 .card {
-    background-color: #fff;
+    background-color: var(--bg-card);
     padding: 1.5rem;
     border-radius: 1rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -81,20 +106,16 @@ hr {
 /* The first two cards will be side-by-side with a 40/60 split */
 .fetch-songs {
     flex: 2;
-    /* position: relative; */
-    /* overflow: hidden; */
+    width: 40%;
 }
 
 .lyrics-card {
     flex: 3;
-    /* position: relative; */
-    /* overflow: hidden; */
 }
 
 /* The third card will be full width at the bottom */
 .card-preview {
     width: 100%;
-    /* height: auto; */
 }
 
 /* Form Elements */
@@ -105,6 +126,8 @@ hr {
 }
 
 .search-song {
+    background-color: var(--bg-body);
+    color: var(--text-primary);
     width: 100%;
     padding: 0.8rem;
     border: 1px solid #ddd;
@@ -113,25 +136,25 @@ hr {
     transition: border-color 0.3s ease;
 }
 
+.search-song::placeholder {
+    color: var(--text-muted);
+}
+
 .search-song:focus {
     outline: none;
     border-color: #6aa8ff;
 }
 
 .search-song-btn {
-    padding: 0.6rem 1rem;
-    background-color: #6aa8ff;
+    padding: 0.9rem;
+    background-color: var(--btn-bg);
     border-radius: 0.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .search-song-btn:hover {
-    background-color: #5596e3;
-}
-
-.search-song-btn img {
-    height: 1.5rem;
+    background-color: var(--btn-bg-hover);
 }
 
 .song-result {
@@ -155,7 +178,7 @@ hr {
 }
 
 .song-card:hover {
-    background-color: #ebebeb;
+    background-color: var(--bg-body);
 }
 
 .song-card img {
@@ -180,7 +203,7 @@ hr {
 
 .song-details p {
     font-size: 0.8rem;
-    color: #666;
+    color: var(--text-muted);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -200,15 +223,16 @@ hr {
     margin-bottom: 0.3rem;
     white-space: pre-wrap;
     border-radius: 0.3rem;
-    background-color: #f0f0f078;
+    transition: border-left 2ms ease-in-out;
 }
 
 .lyric-of-song p:hover {
-    background-color: #f0f0f0;
+    background-color: #76b8fff1;
 }
 
 .lyric-of-song p.selected-lyrics {
-    background-color: #d0e7ff;
+    background-color: #76b8fff1;
+    border-left: 4px solid #5dabff;
 }
 
 .clicked-song-details {
@@ -219,28 +243,17 @@ hr {
 }
 
 .create-card {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: color 0.3s ease;
-    background-color: #6aa8ff;
+    background-color: var(--btn-bg);
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    margin-right: 0.5rem;
 }
 
 .create-card:hover {
-    background-color: #5596e3;
-    color: black;
-}
-
-.create-card h2 {
-    font-size: 1rem;
-}
-
-.create-card img {
-    height: 1.5rem;
+    background-color: var(--btn-bg-hover);
+    color: #000;
 }
 
 /* Card Preview & Customization */
@@ -259,7 +272,7 @@ hr {
     justify-content: center;
     width: 60%;
     margin: auto;
-    background-color: #f9f9f9;
+    background-color: var(--bg-card);
     padding: 1rem;
     border-radius: 1rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -285,7 +298,6 @@ hr {
 .song-name-artist {
     display: flex;
     align-items: center;
-    color: #fff;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -294,7 +306,6 @@ hr {
 
 .song-name-artist h3 {
     font-size: 1.2rem;
-    color: black;
 }
 
 .song-name-artist img {
@@ -307,7 +318,7 @@ hr {
 .final-lyric {
     white-space: wrap;
     font-size: 1rem;
-    color: #fff;
+    color: var(--bg-card);
     line-height: 1.5;
     overflow: hidden;
     height: calc(100% - 4.5rem);
@@ -336,7 +347,7 @@ hr {
     gap: 1rem;
     justify-content: center;
     align-items: center;
-    background-color: #f9f9f9;
+    background-color: var(--bg-card);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 0.7rem;
     border-radius: 0.7rem;
@@ -415,33 +426,19 @@ hr {
 
 #download-card,
 #share-card {
-    background-color: #6aa8ff;
-    color: #fff;
+    background-color: var(--btn-bg);
+    /* color: #fff; */
     cursor: pointer;
     transition: background-color 0.3s ease;
-    gap: 8px;
+    /* gap: 8px; */
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-
-}
-
-.download-card img,
-.share-card img {
-    vertical-align: middle;
-    margin-left: 5px;
-    display: inline-block;
-    filter: invert(1);
 }
 
 .download-card:hover,
 .share-card:hover {
-    background-color: #5596e3;
-}
-
-.download-card img,
-.share-card img {
-    height: 20px;
+    background-color: var(--btn-bg-hover);
 }
 
 /* Notification */
@@ -558,6 +555,10 @@ hr {
         display: none;
     }
 
+    .clicked-song {
+        width: 100%;
+    }
+
     .clicked-song-details {
         flex-direction: column;
         align-items: center;
@@ -568,8 +569,8 @@ hr {
     }
 
     .clicked-song-details .create-card {
-        width: 50%;
-        align-self: flex-end;
+        width: 90%;
+        text-align: right;
     }
 
     #download-card,
