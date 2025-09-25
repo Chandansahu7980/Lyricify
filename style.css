@@ -23,6 +23,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Libre Baskerville', serif;
+    transition: background 0.2s, background-color 0.2s;
+
 }
 
 body {
@@ -127,7 +129,7 @@ hr {
 }
 
 .search-song {
-    background-color: var(--bg-body);
+    background: var(--bg-body);
     color: var(--text-primary);
     width: 100%;
     padding: 0.8rem;
@@ -306,7 +308,12 @@ hr {
 }
 
 .song-name-artist h3 {
+    color: #000;
     font-size: 1.2rem;
+}
+
+.song-name-artist p {
+    color: #666;
 }
 
 .song-name-artist img {
@@ -460,6 +467,10 @@ hr {
     display: inline-block;
     animation: shake 1s ease-in-out infinite;
     margin-right: 5px;
+}
+
+.theme-toggle-btn{
+    cursor: pointer;
 }
 
 @keyframes shake {

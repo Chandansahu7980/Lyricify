@@ -1,8 +1,11 @@
 <?php
-$client_id = '9e1a0aa17b6f4e059df6bd99b412ef3b';
-$client_secret = '8ee3c0d626ab4c198bbd89c46a50b1ff';
+// $client_id = '9e1a0aa17b6f4e059df6bd99b412ef3b';
+// $client_secret = '8ee3c0d626ab4c198bbd89c46a50b1ff';
+require __DIR__ . '/env_loader.php';
+// echo getenv('CLIENT_ID') . " " . getenv('CLIENT_SECRET');
 
-$auth = base64_encode($client_id . ':' . $client_secret);
+
+$auth = base64_encode(getenv('CLIENT_ID') . ':' . getenv('CLIENT_SECRET'));
 // echo $auth;
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://accounts.spotify.com/api/token');
