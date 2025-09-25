@@ -41,4 +41,6 @@ function load_env(string $path): void
     }
 }
 
+
+// call the load_env() function with path of your .env location path
 load_env(".env");
