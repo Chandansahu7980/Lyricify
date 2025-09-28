@@ -1,5 +1,4 @@
 <?php
-
 #function to load env variable from the .env file
 #parameter require path to your .env file
 function load_env(string $path): void
