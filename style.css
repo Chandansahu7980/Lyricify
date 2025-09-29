@@ -230,12 +230,12 @@ hr {
 }
 
 .lyric-of-song p:hover {
-    background-color: #76b8fff1;
+    background-color: #76b8ff9e;
 }
 
 .lyric-of-song p.selected-lyrics {
-    background-color: #76b8fff1;
-    border-left: 4px solid #5dabff;
+    background-color: #76b8ff9e;
+    /* border-left: 4px solid #5dabff; */
 }
 
 .clicked-song-details {
@@ -285,8 +285,8 @@ hr {
 .card-jpg {
     min-width: 300px;
     min-height: 400px;
-    max-width: 50%;
-    max-height: 90%;
+    max-width: 40%;
+    max-height: 80%;
     aspect-ratio: 3/4;
     background-color: #6aa8ff;
     border-radius: 1rem;
@@ -469,7 +469,7 @@ hr {
     margin-right: 5px;
 }
 
-.theme-toggle-btn{
+.theme-toggle-btn {
     cursor: pointer;
 }
 
