@@ -23,13 +23,13 @@
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
   <!-- Favicon -->
-   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 </head>
 
-<body>
+<body id="body">
   <p class="notification" id="notification"></p>
 
-  <nav class="navbar">
+  <nav class="navbar" id="navbar" onclick="scrollToElement('body')">
     <div>
       <img src="./logo.png" alt="" srcset="" />
       <p>Lyric<span>ify</span></p>
@@ -41,7 +41,7 @@
   </nav>
   <div class="container">
     <div class="card-container">
-      <div class="card fetch-songs">
+      <div class="card fetch-songs" id="fetch-songs">
         <h2>Search</h2>
         <hr>
         <div class="search-container">

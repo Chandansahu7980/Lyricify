@@ -17,14 +17,12 @@
     --btn-bg-hover: #5596e3;
 }
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Libre Baskerville', serif;
     transition: background 0.2s, background-color 0.2s;
-
 }
 
 body {
@@ -43,7 +41,6 @@ hr {
     margin: 0.5rem 0;
 }
 
-
 /* Navbar */
 .navbar {
     display: flex;
@@ -57,12 +54,15 @@ hr {
     left: 0;
     width: 100%;
     z-index: 1000;
+    border-bottom: 1px solid var(--text-muted);
+    /* box-shadow: 0 0 4px var(--text-primary); */
 }
 
 .navbar>div {
     display: flex;
     align-items: center;
     justify-content: center;
+    user-select: none;
 }
 
 .navbar img {
@@ -235,7 +235,7 @@ hr {
 
 .lyric-of-song p.selected-lyrics {
     background-color: #76b8ff9e;
-    /* border-left: 4px solid #5dabff; */
+    border-left: 4px solid #5dabff;
 }
 
 .clicked-song-details {
@@ -567,7 +567,7 @@ hr {
         display: none;
     }
 
-    .clicked-song {
+    .clicked-song{
         width: 100%;
     }
 
@@ -578,11 +578,14 @@ hr {
 
     .clicked-song-details .song-card {
         width: 100%;
+        background-color: var(--bg-body);
     }
 
     .clicked-song-details .create-card {
-        width: 90%;
-        text-align: right;
+        width: 80%;
+        text-align: center;
+        align-self: center;
+        padding: 0.8rem auto;
     }
 
     #download-card,

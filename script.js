@@ -9,6 +9,13 @@ const fontSizeValue = document.getElementById("font-size-picker");
 const themeToggleBtn = document.getElementById("theme-toggle-btn");
 inputField.focus();
 
+function scrollToElement(elementId) {
+  let element = document.getElementById(elementId);
+  if (element) {
+    window.scrollTo({ top: element.offsetTop, behavior: 'smooth' });
+  }
+}
+
 function setTheme(theme) {
   let documentBody = document.body;
   let moonIcon = document.getElementById("moon-icon");
@@ -100,7 +107,9 @@ async function getLyric(songName, artist, albumName) {
     songName
   )}&artist_name=${encodeURIComponent(artist)}${albumName ? `&album_name=${encodeURIComponent(albumName)}` : ""
     }`;
-  window.location.href = '#lyrics-card';
+  if (window.innerWidth <= 768) {
+    scrollToElement('lyrics-card');
+  }
   let lyricsDiv = document.getElementById("lyric-of-song");
   lyricsDiv.innerHTML = "<br><h2>🎼Fetching the lyrics...</h2>";
   try {
@@ -130,7 +139,7 @@ async function getLyric(songName, artist, albumName) {
         });
         lyricsDiv.appendChild(p);
       });
-      document.getElementById("create-card").style.display = "flex";
+      document.getElementById("create-card").classList.remove("hide-div");
     } else {
       lyricsDiv.innerHTML = "<h3 style='color:red;'>Lyrics not available.</h3>";
     }
@@ -161,16 +170,14 @@ clickedDiv.addEventListener("click", (e) => {
     mySelectedSong.className = "song-card";
     mySelectedSong.innerHTML = clickedSong.innerHTML;
     resultDiv.innerHTML = "";
-
     resultDiv.appendChild(mySelectedSong);
-
     getLyric(songName, artist, albumName);
   }
 });
 
 function makeCard(song, lyricsLines) {
   document.getElementById("preview-card").classList.remove("hide-div");
-  window.location.href = '#preview-card';
+  scrollToElement('preview-card');
   let songCard = document.getElementById("song-name-artist");
   let myCard = document.getElementById("card-jpg");
   let myLyricsDiv = document.getElementById("final-lyric");
