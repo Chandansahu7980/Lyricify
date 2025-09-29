@@ -195,12 +195,10 @@ function makeCard(song, lyricsLines) {
   let myLyrics = document.getElementById("final-lyric");
   myCard.style.backgroundColor = cardBgColor;
   myLyrics.style.color = cardfontColor;
-  console.log(fontSizeValue);
   myLyrics.style.fontSize = `${1 + fontSizeValue / 100} + "rem"`;
 }
 
 function downloadCard() {
-  console.log("function called.");
   const card = document.getElementById("card-jpg");
   html2canvas(card, {
     useCORS: true,   // Enable cross-origin images
@@ -253,19 +251,12 @@ document.getElementById("create-card").addEventListener("click", () => {
     showNotification("<span>⚠️</span>Please select a line to continue");
     return;
   }
-
   const selectedSong = document.querySelector(".lyrics-card #clicked-song .song-card");
-  // console.log(selectedSong);
-
-
   let selectedLinesLyric = [];
-
-  // console.log(selectedLines);
   selectedLines.forEach((key) => {
     let line = document.createElement("p");
     line.innerText = key.innerText;
     selectedLinesLyric.push(line);
-    // console.log(key.innerText)
   });
 
   makeCard(selectedSong, selectedLinesLyric);
@@ -286,7 +277,6 @@ cardfontColor.addEventListener("input", () => {
 
 fontSizeValue.addEventListener("input", () => {
   let myLyrics = document.getElementById("final-lyric");
-  console.log(1 + fontSizeValue.value / 100 + "rem");
   let valueToBe = 1 + fontSizeValue.value / 100 + "rem";
   myLyrics.style.fontSize = valueToBe;
 })
