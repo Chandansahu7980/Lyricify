@@ -6,7 +6,7 @@ function load_env(string $path): void
     // Check if the .env file exists
     if (!file_exists($path)) {
         #no .env files on the given path
-        echo "No .env file found";
+        // echo "<script>console.log('No .env file found')</script>";
         return;
     }
 
@@ -39,7 +39,6 @@ function load_env(string $path): void
         }
     }
 }
-
 
 // call the load_env() function with path of your .env location path
 load_env(".env");
