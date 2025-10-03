@@ -1,7 +1,7 @@
 services:
   nginx:
     image: nginx:latest
-    container_name: lyricify-nginx-container
+    container_name: lyricify-nginx
     ports:
       - 32020:80
     volumes:
@@ -12,7 +12,7 @@ services:
 
   app:
     build: ./app
-    container_name: lyricify-app-container
+    container_name: lyricify-app
     restart: unless-stopped
     env_file:
       - ./app/.env
@@ -28,6 +28,7 @@ services:
     restart: unless-stopped
     depends_on:
       - cadvisor
+      - node-exporter
 
   grafana:
     image: grafana/grafana:latest
@@ -55,6 +56,21 @@ services:
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
     restart: unless-stopped
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    ports:
+      - "9100:9100"
+    restart: unless-stopped
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/host:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--path.rootfs=/rootfs'
 
 volumes:
   grafana_data:
