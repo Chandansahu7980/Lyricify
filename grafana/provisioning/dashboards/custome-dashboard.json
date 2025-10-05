@@ -24,11 +24,11 @@
     {
       "asDropdown": false,
       "icon": "external link",
-      "includeVars": true,
+      "includeVars": false,
       "keepTime": true,
       "tags": [],
       "targetBlank": true,
-      "title": "Docker Container Monitoring",
+      "title": "Useful links",
       "tooltip": "",
       "type": "dashboards",
       "url": ""
