@@ -19,8 +19,21 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": 3,
-  "links": [],
+  "id": 2,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Docker Container Monitoring",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
   "panels": [
     {
       "datasource": {
@@ -1180,5 +1193,5 @@
   "timezone": "browser",
   "title": "Cusotom monitoring",
   "uid": "custom-monitoring",
-  "version": 3
+  "version": 1
 }
